@@ -50,6 +50,7 @@
       }
       .route-map {
         container-type: inline-size;
+        width: 100%;
         background: #e4dfd6;
       }
       .route-map-scale {
@@ -67,6 +68,21 @@
         border: 0;
         transform-origin: top left;
         transform: scale(calc(100cqi / 1100px));
+      }
+      @media (max-width: 767px) {
+        .route-map {
+          width: 100vw;
+          max-width: 100vw;
+          margin-left: calc(50% - 50vw);
+          border-left: 0;
+          border-right: 0;
+        }
+        .route-map-scale {
+          height: 78vw;
+        }
+        .route-map-scale iframe {
+          transform: translate(calc(100cqi * -0.22), calc(100cqi * -0.06)) scale(calc(100cqi / 640px));
+        }
       }
       @media (prefers-reduced-motion: no-preference) {
         html {
@@ -111,14 +127,13 @@
     </header>
 
     <main id="top">
-      <section class="mx-auto max-w-6xl px-5 pb-8 pt-14 md:px-8 md:pt-20">
+      <section class="mx-auto max-w-6xl px-5 pb-6 pt-8 md:px-8 md:pb-8 md:pt-20">
         <p class="text-xs font-medium uppercase tracking-[0.22em] text-mute">7. bis 26. Februar 2027</p>
-        <h1 class="mt-4 max-w-3xl font-serif text-5xl leading-none text-ink md:text-7xl">
-          Die Reise,<br />Schritt für Schritt.
+        <h1 class="mt-3 max-w-3xl font-serif text-3xl leading-tight text-ink md:mt-4 md:text-7xl md:leading-none">
+          Die Reise.
         </h1>
-        <p class="mt-8 max-w-xl text-lg text-mute">
-          Neunzehn Nächte. Landung und Rückflug in Tokio. Die Liste unten ist die Reihenfolge.
-          Die markierten Namen sind die Gegenden. Darunter steht, was in die Tage passt.
+        <p class="mt-4 max-w-xl text-mute md:mt-8 md:text-lg">
+          Neunzehn Nächte. Landung und Rückflug in Tokio.
         </p>
         <dl class="mt-10 grid grid-cols-2 gap-px border border-line bg-line sm:grid-cols-4">
           <div class="bg-paper p-4">
@@ -149,7 +164,7 @@
             >Strecke in Google Maps</a
           >
         </div>
-        <p class="max-w-xl text-mute">Sechs Stopps, von oben nach unten. Ein Klick öffnet die Stadt.</p>
+        <p class="max-w-xl text-mute">Sechs Stopps. Ein Tipp öffnet die Stadt.</p>
         <ol class="mt-6 border-t border-ink">
           <li class="border-b border-line">
             <a class="flex cursor-pointer items-baseline justify-between gap-4 py-4" href="#tokio">
@@ -188,8 +203,8 @@
             </a>
           </li>
         </ol>
-        <p class="mb-3 mt-10 text-sm text-mute">Dieselbe Strecke auf der Karte. Die Linie läuft von Tokio über Hakone, Kyoto, Osaka und Hiroshima zurück nach Shinagawa.</p>
-        <div class="route-map w-full border border-line">
+        <p class="mb-3 mt-8 text-sm text-mute md:mt-10">Die Linie ist die Reihenfolge, zurück nach Shinagawa.</p>
+        <div class="route-map border border-line">
           <div class="route-map-scale">
             <iframe
               title="Route von Shinjuku über Hakone, Kyoto, Osaka und Hiroshima nach Shinagawa"
@@ -202,7 +217,7 @@
       </section>
 
       <div class="mx-auto max-w-6xl px-5 md:px-8">
-        <article id="tokio" class="grid items-start gap-8 border-t border-ink py-14 lg:grid-cols-12">
+        <article id="tokio" class="grid items-start gap-6 border-t border-ink py-10 md:gap-8 md:py-14 lg:grid-cols-12">
           <div class="lg:col-span-4">
             <p class="font-jp text-5xl leading-none text-mute">東京</p>
             <p class="mt-4 text-xs uppercase tracking-[0.2em] text-mute">01 · 6 Nächte</p>
@@ -216,7 +231,7 @@
               <li class="inline-flex items-center gap-2 border border-ink bg-paper px-3 py-2 text-sm font-medium uppercase tracking-[0.12em]"><span class="h-2 w-2 bg-seal" aria-hidden="true"></span>Shin-Okubo</li>
             </ul>
             <p class="mt-4">
-              Shinjuku und Shibuya, plus die Viertel dazwischen und drumherum. Yoyogi liegt zwischen den beiden Bahnhöfen, Ebisu südlich von Shibuya, Shin-Okubo direkt nördlich von Shinjuku. Kabukicho, neben Shin-Okubo, ist nachts laut.
+              Yoyogi zwischen Shinjuku und Shibuya, Ebisu südlich, Shin-Okubo nördlich. Kabukicho ist nachts laut.
             </p>
             <p class="mt-6">
               <a class="inline-flex min-h-11 cursor-pointer items-center text-sm text-seal underline-offset-4 hover:underline" href="https://www.google.com/maps/search/?api=1&amp;query=Yoyogi+Tokyo">Gegend auf der Karte</a>
@@ -227,30 +242,30 @@
               <iframe id="map-tokio" title="Google Maps: Shinjuku und Shibuya" class="absolute inset-0 h-full w-full" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://maps.google.com/maps?q=Yoyogi,+Tokyo&amp;hl=de&amp;z=14&amp;output=embed"></iframe>
             </div>
             <div class="mt-3 flex items-center justify-between gap-4">
-              <p class="text-sm text-mute">Shinjuku, Shibuya, Yoyogi, Ebisu, Shin-Okubo.</p>
+              <p class="hidden text-sm text-mute md:block">Shinjuku, Shibuya, Yoyogi, Ebisu, Shin-Okubo.</p>
             </div>
           </div>
           <h3 class="mt-10 font-serif text-2xl lg:col-span-12">Diese Tage</h3>
           <ul class="mt-4 grid gap-px border border-line bg-line sm:grid-cols-2 lg:col-span-12 lg:grid-cols-3">
             <li class="bg-paper p-4">
               <p class="font-serif text-xl">Asakusa und Yanaka</p>
-              <p class="mt-1 text-sm text-mute">Senso-ji, danach die Gassen von Yanaka. Ein ruhiger erster voller Tag.</p>
+              <p class="mt-1 text-sm text-mute">Senso-ji, danach Yanaka.</p>
             </li>
             <li class="bg-paper p-4">
               <p class="font-serif text-xl">Meiji, Harajuku, Shibuya</p>
-              <p class="mt-1 text-sm text-mute">Schrein am Morgen, Omotesando, Shibuya erst wenn es dunkel wird.</p>
+              <p class="mt-1 text-sm text-mute">Schrein am Morgen, Shibuya abends.</p>
             </li>
             <li class="bg-paper p-4">
               <p class="font-serif text-xl">Nikko</p>
-              <p class="mt-1 text-sm text-mute">Tagesausflug, etwa zwei Stunden je Weg. Toshogu im Schnee, abends zurück nach Shinjuku.</p>
+              <p class="mt-1 text-sm text-mute">Tagesausflug, etwa zwei Stunden je Weg.</p>
             </li>
             <li class="bg-paper p-4">
               <p class="font-serif text-xl">teamLab Planets</p>
-              <p class="mt-1 text-sm text-mute">Toyosu, ein Abend. Ticket mit Uhrzeit, über Klook oder die offizielle Seite. Der Betrieb läuft laut teamLab bis Ende 2027.</p>
+              <p class="mt-1 text-sm text-mute">Toyosu, Abend mit Zeitfenster. Läuft bis Ende 2027.</p>
             </li>
             <li class="bg-paper p-4 sm:col-span-2 lg:col-span-1">
               <p class="font-serif text-xl">Tsukiji und Ginza</p>
-              <p class="mt-1 text-sm text-mute">Außenmarkt und ein Museum. Das ist der Puffertag, falls der Jetlag die ersten Tage frisst.</p>
+              <p class="mt-1 text-sm text-mute">Außenmarkt und ein Museum. Der Puffertag.</p>
             </li>
           </ul>
           <p class="lg:col-span-12">
@@ -258,7 +273,7 @@
           </p>
         </article>
 
-        <article id="hakone" class="grid items-start gap-8 border-t border-line py-14 lg:grid-cols-12">
+        <article id="hakone" class="grid items-start gap-6 border-t border-line py-10 md:gap-8 md:py-14 lg:grid-cols-12">
           <div class="lg:col-span-4">
             <p class="font-jp text-5xl leading-none text-mute">箱根</p>
             <p class="mt-4 text-xs uppercase tracking-[0.2em] text-mute">02 · 1 Nacht</p>
@@ -268,7 +283,7 @@
               <li class="inline-flex items-center gap-2 border border-ink bg-paper px-3 py-2 text-sm font-medium uppercase tracking-[0.12em]"><span class="h-2 w-2 bg-seal" aria-hidden="true"></span>Gora</li>
             </ul>
             <p class="mt-4">
-              Die Ryokan-Straßen am Hang, zu Fuß vom Bahnhof Gora. Hakone-Yumoto ist nur der Talbahnhof, der Ashi-See liegt zu weit für eine Nacht. Den großen Koffer am 12. Februar von Tokio direkt nach Kyoto schicken.
+              Am Hang, zu Fuß vom Bahnhof Gora. Den Koffer am 12. Februar nach Kyoto schicken.
             </p>
             <p class="mt-6">
               <a class="inline-flex min-h-11 cursor-pointer items-center text-sm text-seal underline-offset-4 hover:underline" href="https://www.google.com/maps/search/?api=1&amp;query=Gora+Hakone">Gegend auf der Karte</a>
@@ -279,22 +294,22 @@
               <iframe id="map-hakone" title="Google Maps: Gora" class="absolute inset-0 h-full w-full" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://maps.google.com/maps?q=Gora,+Hakone&amp;hl=de&amp;z=15&amp;output=embed"></iframe>
             </div>
             <div class="mt-3 flex items-center justify-between gap-4">
-              <p class="text-sm text-mute">Viertel: Gora, die Straßen am Bahnhof.</p>
+              <p class="hidden text-sm text-mute md:block">Viertel: Gora, die Straßen am Bahnhof.</p>
             </div>
           </div>
           <h3 class="mt-10 font-serif text-2xl lg:col-span-12">Diese Tage</h3>
           <ul class="mt-4 grid gap-px border border-line bg-line sm:grid-cols-3 lg:col-span-12">
             <li class="bg-paper p-4">
               <p class="font-serif text-xl">Onsen im Ryokan</p>
-              <p class="mt-1 text-sm text-mute">Der Abend. Das Onsen im Ryokan, oft das milchige Wasser aus Owakudani. Mehr Programm braucht diese Nacht nicht.</p>
+              <p class="mt-1 text-sm text-mute">Abend im Ryokan, oft das Wasser aus Owakudani.</p>
             </li>
             <li class="bg-paper p-4">
               <p class="font-serif text-xl">Fuji am Morgen</p>
-              <p class="mt-1 text-sm text-mute">Von Gora, wenn der Himmel klar ist. Im Februar ist die Sicht oft besser als im Sommer.</p>
+              <p class="mt-1 text-sm text-mute">Von Gora, wenn der Himmel klar ist.</p>
             </li>
             <li class="bg-paper p-4">
               <p class="font-serif text-xl">Seilbahn, nur bei Zeit</p>
-              <p class="mt-1 text-sm text-mute">Owakudani und der Ashi-See liegen auf dem Weg. Am 14. Februar geht es nach Kyoto, etwa drei Stunden. Die Seilbahn passt, wenn der Zug erst am Nachmittag fährt.</p>
+              <p class="mt-1 text-sm text-mute">Nur wenn der Zug nach Kyoto erst am Nachmittag fährt.</p>
             </li>
           </ul>
           <p class="lg:col-span-12">
@@ -302,7 +317,7 @@
           </p>
         </article>
 
-        <article id="kyoto" class="grid items-start gap-8 border-t border-line py-14 lg:grid-cols-12">
+        <article id="kyoto" class="grid items-start gap-6 border-t border-line py-10 md:gap-8 md:py-14 lg:grid-cols-12">
           <div class="lg:col-span-4">
             <p class="font-jp text-5xl leading-none text-mute">京都</p>
             <p class="mt-4 text-xs uppercase tracking-[0.2em] text-mute">03 · 5 Nächte</p>
@@ -313,7 +328,7 @@
               <li class="inline-flex items-center gap-2 border border-ink bg-paper px-3 py-2 text-sm font-medium uppercase tracking-[0.12em]"><span class="h-2 w-2 bg-seal" aria-hidden="true"></span>Pontocho</li>
             </ul>
             <p class="mt-4">
-              Zwischen Shijo und Takoyakushi, von der Kawaramachi bis zum Kanal Takasegawa. Gion beginnt östlich vom Fluss, Nishiki liegt westlich. Anreise am 14. Februar aus Hakone, am 19. weiter nach Osaka. Der Shinkansen-Bahnhof Kyoto liegt weit im Süden.
+              Zwischen Shijo und Takoyakushi, bis zum Takasegawa. Der Bahnhof Kyoto liegt weit im Süden.
             </p>
             <p class="mt-6">
               <a class="inline-flex min-h-11 cursor-pointer items-center text-sm text-seal underline-offset-4 hover:underline" href="https://www.google.com/maps/search/?api=1&amp;query=Shijo+Kawaramachi+Kyoto">Gegend auf der Karte</a>
@@ -324,26 +339,26 @@
               <iframe id="map-kyoto" title="Google Maps: Kawaramachi und Pontocho" class="absolute inset-0 h-full w-full" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://maps.google.com/maps?q=Shijo+Kawaramachi,+Kyoto&amp;hl=de&amp;z=16&amp;output=embed"></iframe>
             </div>
             <div class="mt-3 flex items-center justify-between gap-4">
-              <p class="text-sm text-mute">Viertel: Kawaramachi und Pontocho, zwischen Shijo und Takoyakushi.</p>
+              <p class="hidden text-sm text-mute md:block">Viertel: Kawaramachi und Pontocho, zwischen Shijo und Takoyakushi.</p>
             </div>
           </div>
           <h3 class="mt-10 font-serif text-2xl lg:col-span-12">Diese Tage</h3>
           <ul class="mt-4 grid gap-px border border-line bg-line sm:grid-cols-2 lg:col-span-12">
             <li class="bg-paper p-4">
               <p class="font-serif text-xl">Higashiyama</p>
-              <p class="mt-1 text-sm text-mute">Kiyomizu-dera, Sannen-zaka, abends Gion. Steinwege sind morgens glatt. Ein ganzer Tag.</p>
+              <p class="mt-1 text-sm text-mute">Kiyomizu-dera, Sannen-zaka, abends Gion.</p>
             </li>
             <li class="bg-paper p-4">
               <p class="font-serif text-xl">Fushimi Inari</p>
-              <p class="mt-1 text-sm text-mute">Ganz früh die Tore, danach Nishiki-Markt. Nachmittags ist der Berg voll und der Markt zu.</p>
+              <p class="mt-1 text-sm text-mute">Tore ganz früh, danach Nishiki.</p>
             </li>
             <li class="bg-paper p-4">
               <p class="font-serif text-xl">Arashiyama</p>
-              <p class="mt-1 text-sm text-mute">Bambushain, Fluss, optional der Affenberg. Im Februar deutlich ruhiger als im März.</p>
+              <p class="mt-1 text-sm text-mute">Bambushain und der Fluss.</p>
             </li>
             <li class="bg-paper p-4">
               <p class="font-serif text-xl">Ginkaku-ji und Philosophenweg</p>
-              <p class="mt-1 text-sm text-mute">Der vierte volle Tag. Nanzen-ji, der Weg am Kanal, Ginkaku-ji. Im Februar ist der Weg ruhig und oft leer.</p>
+              <p class="mt-1 text-sm text-mute">Nanzen-ji, der Weg am Kanal, Ginkaku-ji.</p>
             </li>
           </ul>
           <p class="lg:col-span-12">
@@ -351,7 +366,7 @@
           </p>
         </article>
 
-        <article id="osaka" class="grid items-start gap-8 border-t border-line py-14 lg:grid-cols-12">
+        <article id="osaka" class="grid items-start gap-6 border-t border-line py-10 md:gap-8 md:py-14 lg:grid-cols-12">
           <div class="lg:col-span-4">
             <p class="font-jp text-5xl leading-none text-mute">大阪</p>
             <p class="mt-4 text-xs uppercase tracking-[0.2em] text-mute">04 · 4 Nächte</p>
@@ -362,7 +377,7 @@
               <li class="inline-flex items-center gap-2 border border-ink bg-paper px-3 py-2 text-sm font-medium uppercase tracking-[0.12em]"><span class="h-2 w-2 bg-seal" aria-hidden="true"></span>Namba</li>
             </ul>
             <p class="mt-4">
-              Die Shinsaibashi-suji hinunter bis Dotonbori, nördlich vom Bahnhof Namba. Das ist Minami. Umeda liegt im Norden, am anderen Bahnhof.
+              Shinsaibashi hinunter bis Dotonbori, nördlich von Namba. Umeda ist der Bahnhof im Norden.
             </p>
             <p class="mt-6">
               <a class="inline-flex min-h-11 cursor-pointer items-center text-sm text-seal underline-offset-4 hover:underline" href="https://www.google.com/maps/search/?api=1&amp;query=Shinsaibashi+Osaka">Gegend auf der Karte</a>
@@ -373,26 +388,26 @@
               <iframe id="map-osaka" title="Google Maps: Shinsaibashi" class="absolute inset-0 h-full w-full" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://maps.google.com/maps?q=Shinsaibashi,+Osaka&amp;hl=de&amp;z=16&amp;output=embed"></iframe>
             </div>
             <div class="mt-3 flex items-center justify-between gap-4">
-              <p class="text-sm text-mute">Viertel: Shinsaibashi, die Straße hinunter bis Dotonbori.</p>
+              <p class="hidden text-sm text-mute md:block">Viertel: Shinsaibashi, die Straße hinunter bis Dotonbori.</p>
             </div>
           </div>
           <h3 class="mt-10 font-serif text-2xl lg:col-span-12">Diese Tage</h3>
           <ul class="mt-4 grid gap-px border border-line bg-line sm:grid-cols-2 lg:col-span-12">
             <li class="bg-paper p-4">
               <p class="font-serif text-xl">Nara Park</p>
-              <p class="mt-1 text-sm text-mute">Ein ganzer Tag, der 20. Februar. Von Namba mit der Kintetsu, etwa 45 Minuten. Todai-ji, der Park, die Hirsche. Abends zurück nach Namba.</p>
+              <p class="mt-1 text-sm text-mute">20. Februar. Kintetsu von Namba, etwa 45 Minuten.</p>
             </li>
             <li class="bg-paper p-4">
               <p class="font-serif text-xl">Dotonbori</p>
-              <p class="mt-1 text-sm text-mute">Die Abende, vom 19. bis zum 22. Februar. Shinsaibashi, Glico-Schild, Essen im Gehen.</p>
+              <p class="mt-1 text-sm text-mute">Die Abende, 19. bis 22. Februar.</p>
             </li>
             <li class="bg-paper p-4">
               <p class="font-serif text-xl">Burg, Shinsekai, Kuromon</p>
-              <p class="mt-1 text-sm text-mute">Der 21. Februar. Burg am Vormittag, Shinsekai und der Markt danach.</p>
+              <p class="mt-1 text-sm text-mute">21. Februar. Burg, danach Shinsekai und Kuromon.</p>
             </li>
             <li class="bg-paper p-4">
               <p class="font-serif text-xl">Universal Studios</p>
-              <p class="mt-1 text-sm text-mute">Der 22. Februar. Ticket über Klook, Express dazu, sonst geht der Tag an den Schlangen verloren. Am 23. weiter nach Hiroshima.</p>
+              <p class="mt-1 text-sm text-mute">22. Februar, Ticket über Klook. Am 23. nach Hiroshima.</p>
             </li>
           </ul>
           <p class="lg:col-span-12">
@@ -400,7 +415,7 @@
           </p>
         </article>
 
-        <article id="hiroshima" class="grid items-start gap-8 border-t border-line py-14 lg:grid-cols-12">
+        <article id="hiroshima" class="grid items-start gap-6 border-t border-line py-10 md:gap-8 md:py-14 lg:grid-cols-12">
           <div class="lg:col-span-4">
             <p class="font-jp text-5xl leading-none text-mute">広島</p>
             <p class="mt-4 text-xs uppercase tracking-[0.2em] text-mute">05 · 2 Nächte</p>
@@ -410,7 +425,7 @@
               <li class="inline-flex items-center gap-2 border border-ink bg-paper px-3 py-2 text-sm font-medium uppercase tracking-[0.12em]"><span class="h-2 w-2 bg-seal" aria-hidden="true"></span>Bahnhof</li>
             </ul>
             <p class="mt-4">
-              Die Blöcke nördlich und östlich vom JR-Bahnhof Hiroshima, auf der Seite der Straßenbahn. Der Friedenspark ist ein Tagesweg. Am 25. Februar geht der Shinkansen nach Shinagawa.
+              Nördlich und östlich vom JR-Bahnhof, an der Straßenbahn. Am 25. der Shinkansen nach Shinagawa.
             </p>
             <p class="mt-6">
               <a class="inline-flex min-h-11 cursor-pointer items-center text-sm text-seal underline-offset-4 hover:underline" href="https://www.google.com/maps/search/?api=1&amp;query=Hiroshima+Station">Gegend auf der Karte</a>
@@ -421,22 +436,22 @@
               <iframe id="map-hiroshima" title="Google Maps: Hiroshima Bahnhof" class="absolute inset-0 h-full w-full" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://maps.google.com/maps?q=Hiroshima+Station&amp;hl=de&amp;z=15&amp;output=embed"></iframe>
             </div>
             <div class="mt-3 flex items-center justify-between gap-4">
-              <p class="text-sm text-mute">Viertel: die Blöcke direkt am JR-Bahnhof Hiroshima.</p>
+              <p class="hidden text-sm text-mute md:block">Viertel: die Blöcke direkt am JR-Bahnhof Hiroshima.</p>
             </div>
           </div>
           <h3 class="mt-10 font-serif text-2xl lg:col-span-12">Diese Tage</h3>
           <ul class="mt-4 grid gap-px border border-line bg-line sm:grid-cols-3 lg:col-span-12">
             <li class="bg-paper p-4">
               <p class="font-serif text-xl">Friedenspark</p>
-              <p class="mt-1 text-sm text-mute">Am Ankunftstag, dem 23. Februar. Museum und Park. Mit der Straßenbahn vom Bahnhof, der Koffer bleibt im Hotel.</p>
+              <p class="mt-1 text-sm text-mute">23. Februar, Museum und Park.</p>
             </li>
             <li class="bg-paper p-4">
               <p class="font-serif text-xl">Miyajima</p>
-              <p class="mt-1 text-sm text-mute">Der ganze 24. Februar. Zug nach Miyajimaguchi, Fähre, Schrein, Daishoin. Die letzte Fähre im Blick behalten. Übernachten in Hiroshima.</p>
+              <p class="mt-1 text-sm text-mute">24. Februar, Zug und Fähre. Zurück nach Hiroshima.</p>
             </li>
             <li class="bg-paper p-4">
               <p class="font-serif text-xl">Okonomiyaki</p>
-              <p class="mt-1 text-sm text-mute">Ein Abend in der Stadt, nah am Bahnhof. Am 25. Februar morgens der Shinkansen nach Shinagawa.</p>
+              <p class="mt-1 text-sm text-mute">Ein Abend am Bahnhof. Am 25. nach Shinagawa.</p>
             </li>
           </ul>
           <p class="lg:col-span-12">
@@ -444,7 +459,7 @@
           </p>
         </article>
 
-        <article id="shinagawa" class="grid items-start gap-8 border-t border-line py-14 lg:grid-cols-12">
+        <article id="shinagawa" class="grid items-start gap-6 border-t border-line py-10 md:gap-8 md:py-14 lg:grid-cols-12">
           <div class="lg:col-span-4">
             <p class="font-jp text-5xl leading-none text-mute">品川</p>
             <p class="mt-4 text-xs uppercase tracking-[0.2em] text-mute">06 · 1 Nacht</p>
@@ -454,7 +469,7 @@
               <li class="inline-flex items-center gap-2 border border-ink bg-paper px-3 py-2 text-sm font-medium uppercase tracking-[0.12em]"><span class="h-2 w-2 bg-seal" aria-hidden="true"></span>Konan</li>
             </ul>
             <p class="mt-4">
-              Ostseite von Shinagawa, Konan-Ausgang, an der Brücke zum Bahnhof. Von hier fährt die Keikyu nach Haneda und der Narita Express nach Narita. Die Westseite heißt Takanawa. Geht der Flug ab Kansai, fällt diese Nacht weg.
+              Konan-Ausgang, Ostseite. Keikyu nach Haneda, Narita Express nach Narita. Fällt weg, wenn der Flug ab Kansai geht.
             </p>
             <p class="mt-6">
               <a class="inline-flex min-h-11 cursor-pointer items-center text-sm text-seal underline-offset-4 hover:underline" href="https://www.google.com/maps/search/?api=1&amp;query=Shinagawa+Station+Konan+Exit">Gegend auf der Karte</a>
@@ -465,7 +480,7 @@
               <iframe id="map-shinagawa" title="Google Maps: Konan, Shinagawa" class="absolute inset-0 h-full w-full" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://maps.google.com/maps?q=Shinagawa+Station+Konan+Exit&amp;hl=de&amp;z=16&amp;output=embed"></iframe>
             </div>
             <div class="mt-3 flex items-center justify-between gap-4">
-              <p class="text-sm text-mute">Viertel: Konan, Ostseite von Shinagawa.</p>
+              <p class="hidden text-sm text-mute md:block">Viertel: Konan, Ostseite von Shinagawa.</p>
             </div>
           </div>
           <p class="lg:col-span-12">
@@ -477,9 +492,9 @@
       <article id="apps" class="border-t border-ink">
         <div class="mx-auto max-w-6xl px-5 py-14 md:px-8">
           <p class="text-xs font-medium uppercase tracking-[0.22em] text-mute">Vor der Abreise</p>
-          <h2 class="mt-3 font-serif text-4xl md:text-5xl">Sechs Apps aufs Telefon.</h2>
-          <p class="mt-5 max-w-xl text-mute">
-            Jede für eine Sache auf dieser Route. Installieren, einmal öffnen, Standort erlauben.
+          <h2 class="mt-3 font-serif text-3xl md:text-5xl">Sechs Apps.</h2>
+          <p class="mt-4 max-w-xl text-mute md:mt-5">
+            Einmal öffnen, Standort erlauben.
           </p>
           <ul class="mt-10 border-t border-ink">
             <li class="grid gap-2 border-b border-line py-7 md:grid-cols-12 md:gap-6">
@@ -487,7 +502,7 @@
               <div class="md:col-span-7">
                 <h3 class="font-serif text-3xl">Flush</h3>
                 <p class="mt-3">
-                  Öffentliche Toiletten, auch ohne Netz. In Parks, an Tempeln und zwischen zwei Bahnhöfen, wenn kein Konbini in Sicht ist. Die Karte zeigt, ob der Zugang frei ist, ob ein Schlüssel nötig ist und ob er barrierefrei ist. Die kostenlose Version reicht.
+                  Öffentliche Toiletten, auch ohne Netz. Die kostenlose Version reicht.
                 </p>
               </div>
               <a class="inline-flex min-h-11 cursor-pointer items-center text-sm text-seal underline-offset-4 hover:underline md:col-span-2 md:justify-end" href="https://apps.apple.com/app/flush-toilet-finder-map/id955254528">App Store</a>
@@ -497,7 +512,7 @@
               <div class="md:col-span-7">
                 <h3 class="font-serif text-3xl">mymizu</h3>
                 <p class="mt-3">
-                  Kostenlose Nachfüllstellen für eine eigene Flasche: Cafés, Läden, öffentliche Brunnen. Im Februar läuft man trotzdem den ganzen Tag. Die Webkarte zeigt die Punkte auch ohne Installation.
+                  Kostenlose Nachfüllstellen für die eigene Flasche.
                 </p>
               </div>
               <a class="inline-flex min-h-11 cursor-pointer items-center text-sm text-seal underline-offset-4 hover:underline md:col-span-2 md:justify-end" href="https://www.mymizu.co/home-en">mymizu</a>
@@ -507,7 +522,7 @@
               <div class="md:col-span-7">
                 <h3 class="font-serif text-3xl">Klook</h3>
                 <p class="mt-3">
-                  Eintritte, die zeitlich ausgehen. Für diese Reise vor allem teamLab in Tokio, falls du hingehst, und einzelne Aussichten. Shinkansen und die Tageskarten für U-Bahn und Bus kaufst du bei JR und an den Automaten.
+                  Zeitfenster-Tickets, vor allem teamLab. Shinkansen bei JR.
                 </p>
               </div>
               <a class="inline-flex min-h-11 cursor-pointer items-center text-sm text-seal underline-offset-4 hover:underline md:col-span-2 md:justify-end" href="https://www.klook.com/">Klook</a>
@@ -517,7 +532,7 @@
               <div class="md:col-span-7">
                 <h3 class="font-serif text-3xl">Tabelog</h3>
                 <p class="mt-3">
-                  Restaurants, mit strengen Noten. 3,5 ist schon ein gutes Lokal, ab 3,8 lohnt der Umweg. Abends in Pontocho und Dotonbori nach Entfernung sortieren und die Fotos der Gerichte ansehen. Die japanische Seite hat mehr Einträge als die englische.
+                  Restaurants. Ab 3,5 ist es gut, ab 3,8 lohnt der Umweg.
                 </p>
               </div>
               <a class="inline-flex min-h-11 cursor-pointer items-center text-sm text-seal underline-offset-4 hover:underline md:col-span-2 md:justify-end" href="https://tabelog.com/en/">Tabelog</a>
@@ -527,7 +542,7 @@
               <div class="md:col-span-7">
                 <h3 class="font-serif text-3xl">Mame Sama</h3>
                 <p class="mt-3">
-                  Vegane Restaurants in Japan, von Leuten geprüft, die dort vegan leben. Einträge auf Englisch und Japanisch, von Tokio bis Osaka. Kostenlos. Auf Android heißt die App genauso.
+                  Vegane Restaurants, geprüft und kostenlos. Auf Android heißt sie genauso.
                 </p>
               </div>
               <a class="inline-flex min-h-11 cursor-pointer items-center text-sm text-seal underline-offset-4 hover:underline md:col-span-2 md:justify-end" href="https://apps.apple.com/app/mame-sama/id6746381767">App Store</a>
@@ -537,7 +552,7 @@
               <div class="md:col-span-7">
                 <h3 class="font-serif text-3xl">Rakuten Travel</h3>
                 <p class="mt-3">
-                  Suche nach dem Viertel, nicht nach der Stadt: Shinjuku, Shibuya, Yoyogi, Gora, Kawaramachi, Shinsaibashi, Hiroshima Bahnhof, Konan. Ryokan in Gora und kleinere Hotels in Kyoto stehen hier oft vollständiger.
+                  Suche nach dem Viertel: Shinjuku, Shibuya, Yoyogi, Gora, Kawaramachi, Shinsaibashi, Hiroshima Bahnhof, Konan.
                 </p>
               </div>
               <a class="inline-flex min-h-11 cursor-pointer items-center text-sm text-seal underline-offset-4 hover:underline md:col-span-2 md:justify-end" href="https://travel.rakuten.com/">Rakuten Travel</a>
