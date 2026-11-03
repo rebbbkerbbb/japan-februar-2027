@@ -48,6 +48,26 @@
         color: #9e2a24;
         box-shadow: inset 0 -2px 0 #9e2a24;
       }
+      .route-map {
+        container-type: inline-size;
+        background: #e4dfd6;
+      }
+      .route-map-scale {
+        position: relative;
+        height: calc(100cqi * 620 / 1100);
+        overflow: hidden;
+      }
+      .route-map-scale iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 1100px;
+        height: 620px;
+        max-width: none;
+        border: 0;
+        transform-origin: top left;
+        transform: scale(calc(100cqi / 1100px));
+      }
       @media (prefers-reduced-motion: no-preference) {
         html {
           scroll-behavior: smooth;
@@ -168,22 +188,16 @@
             </a>
           </li>
         </ol>
-        <p class="mb-3 mt-10 text-sm text-mute">Dieselbe Strecke auf der Karte.</p>
-        <div class="relative aspect-[4/3] w-full overflow-hidden border border-line bg-line md:aspect-[16/7]">
-          <iframe
-            title="Honshu"
-            class="absolute inset-0 h-full w-full md:hidden"
-            loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade"
-            src="https://maps.google.com/maps?ll=35.0,136.2&amp;z=5&amp;hl=de&amp;output=embed"
-          ></iframe>
-          <iframe
-            title="Route von Shinjuku über Hakone, Kyoto, Osaka und Hiroshima nach Shinagawa"
-            class="absolute inset-0 hidden h-full w-full md:block"
-            loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade"
-            src="https://maps.google.com/maps?f=d&amp;hl=de&amp;output=embed&amp;saddr=Shinjuku+Station,+Tokyo&amp;daddr=Gora+Station,+Hakone+to:Shijo-Kawaramachi,+Kyoto+to:Shinsaibashi,+Osaka+to:Hiroshima+Station+to:Shinagawa+Station,+Tokyo"
-          ></iframe>
+        <p class="mb-3 mt-10 text-sm text-mute">Dieselbe Strecke auf der Karte. Die Linie läuft von Tokio über Hakone, Kyoto, Osaka und Hiroshima zurück nach Shinagawa.</p>
+        <div class="route-map w-full border border-line">
+          <div class="route-map-scale">
+            <iframe
+              title="Route von Shinjuku über Hakone, Kyoto, Osaka und Hiroshima nach Shinagawa"
+              loading="eager"
+              referrerpolicy="no-referrer-when-downgrade"
+              src="https://maps.google.com/maps?f=d&amp;hl=de&amp;output=embed&amp;saddr=Shinjuku+Station,+Tokyo&amp;daddr=Gora+Station,+Hakone+to:Shijo-Kawaramachi,+Kyoto+to:Shinsaibashi,+Osaka+to:Hiroshima+Station+to:Shinagawa+Station,+Tokyo"
+            ></iframe>
+          </div>
         </div>
       </section>
 
